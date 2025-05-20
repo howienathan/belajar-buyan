@@ -34,7 +34,7 @@
             ["22:00 - 04:00", "Bobok"],
         ];
 
-        $time = "18:30";
+        $time = "19:00";
         $isBelajar = false;
         
         ?>
@@ -110,11 +110,13 @@
                     echo"Bobok";
                 }
             ?>
-        </div>  
-        <div class="">
-            <p>Fadhil Al Ghaza</p>
-            <p>Satrya Arif</p>
-        </div>
+        </div>      
+        
     </section>
+
+ <div>
+    <p>1.  </p>
+    <h1>Jonathan Iatsa Heroku Augta</h1>
+ </div>
 </body>
 </html>

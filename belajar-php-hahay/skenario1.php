@@ -33,5 +33,9 @@ else if ($nilai >= 90 and $nilai <= 100) {
 }
 ?>
     </section>
+     <div class="mt-6">
+        <h1>Jonathan Iatsa Heroku Augta</h1>
+        <h1>El Rakkai Omar Wahid</h1>
+    </div>
 </body>
 </html>

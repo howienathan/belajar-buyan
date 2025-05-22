@@ -15,6 +15,25 @@
         </div>
 
         <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $time = $_POST['time'] ?? "20:00";
+            $isBelajar = isset($_POST['isBelajar']) ? true : false;
+        } else {
+            $time = "20:00";
+            $isBelajar = false;
+        }
+        ?>
+
+        <form method="post" class="my-4 p-4 border border-gray-300 rounded">
+            <label for="time" class="block font-medium">Edit Waktu (HH:MM):</label>
+            <textarea name="time" id="time" rows="1" cols="10" class="border p-1"><?php echo htmlspecialchars($time); ?></textarea><br><br>
+
+          <br>
+
+            <button type="submit" class="mt-2 px-4 py-1 bg-blue-600 text-white rounded">Terapkan</button>
+        </form>
+
+        <?php
         $jadwal = [
             ["04:00 - 06:00", "Subuhan dan persiapan sekolah"],
             ["06:30 - 15:30", "Sekolah"],
@@ -33,42 +52,39 @@
             ["21:30 - 22:00", "Ngobrol dengan ortu"],
             ["22:00 - 04:00", "Bobok"],
         ];
-
-        $time = "19:00";
-        $isBelajar = false;
-        
         ?>
 
         <div class="mt-2">
-            <h2>Jadwal harian Andi</h2>
-            <table class="w-full text-left border='1'">
+            <h2 class="font-semibold">Jadwal harian Andi</h2>
+            <table class="w-full text-left border-collapse border border-black">
                 <tr class="bg-[#f2f2f2]">
-                    <th class="border-[1px] border-black text-center p-2">Waktu</th>
-                    <th class='border-[1px] border-black text-center p-2'>Kegiatan</th>
+                    <th class="border border-black text-center p-2">Waktu</th>
+                    <th class='border border-black text-center p-2'>Kegiatan</th>
                 </tr>
 
                 <?php
                     foreach ($jadwal as $item) {
-                        if($item[1]=== "Nugas" && !$isBelajar){
-                            echo"<tr class='border-[1px] border-black'>
-                                    <td class='border-[1px] border-black p-2'>{$item[0]}</td>
-                                    <td class='border-[1px] border-black p-2'>Waktu Luang</td>
+                        if($item[1] === "Nugas" && !$isBelajar){
+                            echo"<tr>
+                                    <td class='border border-black p-2'>{$item[0]}</td>
+                                    <td class='border border-black p-2'>Waktu Luang</td>
                                 </tr>";
-                        }else{
+                        } else {
                             echo "
-                            <tr class='border-[1px] border-black'>
-                                <td class='border-[1px] border-black p-2'>{$item[0]}</td>
-                                <td class='border-[1px] border-black p-2'>{$item[1]}</td>
+                            <tr>
+                                <td class='border border-black p-2'>{$item[0]}</td>
+                                <td class='border border-black p-2'>{$item[1]}</td>
                             </tr>
                             ";
                         }   
                     }
                 ?>
             </table>
+
             <?php
-                echo"<h1>Jam: $time</h1>";  
+                echo"<h1 class='mt-4 text-xl font-semibold'>Jam: $time</h1>";  
                 
-                echo"yang sedang dilakukan: ";
+                echo"<p class='text-lg'>yang sedang dilakukan: ";
 
                 if($time < "00:00" || $time > "24:00"){
                     echo"orang pundi mas";
@@ -109,14 +125,16 @@
                 }else{
                     echo"Bobok";
                 }
+
+                echo "</p>";
             ?>
         </div>      
         
     </section>
 
- <div>
-    <p>1.  </p>
-    <h1>Jonathan Iatsa Heroku Augta</h1>
- </div>
+    <div class="mt-6">
+        <h1>Jonathan Iatsa Heroku Augta</h1>
+        <h1>El Rakkai Omar Wahid</h1>
+    </div>
 </body>
 </html>
